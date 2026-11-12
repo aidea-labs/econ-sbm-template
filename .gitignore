@@ -1,0 +1,28 @@
+# 数据文件
+*.csv
+*.dta
+*.xlsx
+
+# LaTeX 中间文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.out
+*.run.xml
+*.synctex
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.xdv
+
+# 日志文件
+logs/
+log/
+
+*.log
+
