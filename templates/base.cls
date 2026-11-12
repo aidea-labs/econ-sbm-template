@@ -18,6 +18,8 @@
 \ProcessKeyOptions
 \LoadClass[UTF8]{ctexart}
 
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{booktabs}
 \RequirePackage{graphicx}
 
