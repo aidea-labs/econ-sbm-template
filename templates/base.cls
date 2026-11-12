@@ -5,12 +5,27 @@
 \RequirePackage{iftex}
 \RequireXeTeX
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}}
-\ProcessOptions\relax
+% Set defaults before loading biblatex, allowing child classes to replace them.
+\DeclareKeys{
+  bibstyle .code:n = {\def\econ@bibstyle{#1}},
+  bibstyle .initial:n = gb7714-2025ay,
+  bibstyle .value_required:n = true,
+  citestyle .code:n = {\def\econ@citestyle{#1}},
+  citestyle .initial:n = gb7714-2025ay,
+  citestyle .value_required:n = true
+}
+\DeclareUnknownKeyHandler{\PassOptionsToClass{\CurrentOption}{ctexart}}
+\ProcessKeyOptions
 \LoadClass[UTF8]{ctexart}
 
 \RequirePackage{booktabs}
 \RequirePackage{graphicx}
+
+\RequirePackage[
+  backend=biber,
+  bibstyle=\econ@bibstyle,
+  citestyle=\econ@citestyle
+]{biblatex}
 
 % Shared manuscript fields. Each template controls how they are displayed.
 \newcommand{\econ@abstracten}{}
