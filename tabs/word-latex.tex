@@ -1,0 +1,47 @@
+\begin{table}[htbp]
+    \centering
+    \caption{\LaTeX{} 与 Word 在论文写作中的对比}
+    \label{tab:word-latex}
+    \zihao{5}
+    \setlength{\tabcolsep}{3pt}
+    \begin{tabular}{@{}p{0.20\linewidth}p{0.38\linewidth}p{0.38\linewidth}@{}}
+        \toprule
+        \textbf{维度} & \textbf{Microsoft Word} & \textbf{\LaTeX} \\
+        \midrule
+        \textbf{排版哲学}
+          & \textbf{WYSIWYG}（所见即所得），你看到的就是最终打印出来的效果。
+          & \textbf{WYSIWYM}（所见即所得意），你只写内容和逻辑结构，由引擎自动排版。 \\
+        \addlinespace[2pt]
+        \textbf{学习曲线}
+          & \textbf{平缓}，上手极快，打开即写，对普通用户极其友好。
+          & \textbf{陡峭}，需要学习标记语言、宏包和编译规则，有一定的门槛。 \\
+        \addlinespace[2pt]
+        \textbf{学习曲线（AI）}
+          & AI 较难直接编辑 Word 文档并保留原有格式。
+          & AI 可以直接生成和修改源码，作者几乎不需要学习 \LaTeX{} 语法就能开始写作。 \\
+        \addlinespace[2pt]
+        \textbf{公式与排版}
+          & 输入复杂数学公式和大量图表交叉引用时，容易格式错乱或变卡。
+          & \textbf{专业且完美}，极其擅长排版长篇巨著、复杂公式、多级定理与交叉引用。 \\
+        \addlinespace[2pt]
+        \textbf{协作与审阅}
+          & \textbf{强}，支持多人实时在线协作、批注、修订（Word/Office 365）。
+          & \textbf{代码式协作}，基于纯文本（如 Overleaf 或 Git 版本控制），类似写代码的分支与合并。 \\
+        \addlinespace[2pt]
+        \textbf{文件格式}
+          & 复杂混合格式。
+          & \textbf{纯文本文件}（\texttt{.tex}），轻量。 \\
+        \addlinespace[2pt]
+        \textbf{版本管理}
+          & 不方便做细致的版本 Diff。
+          & 天然契合 Git 等版本管理工具。 \\
+        \addlinespace[2pt]
+        \textbf{适用场景}
+          & 日常办公、商业报告、简单论文、简历、图文混排、快速修改。
+          & 学术论文、学位论文、书籍，以及含有大量公式或交叉引用的科技文档。 \\
+        \bottomrule
+    \end{tabular}
+    \par\smallskip
+    {\footnotesize\raggedright
+    \textbf{注：}该对比内容由 Gemini 生成，可以代表作者部分观点\par}
+\end{table}
