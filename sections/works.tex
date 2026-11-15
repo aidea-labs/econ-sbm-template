@@ -39,26 +39,36 @@ Agent Skill 是由 Anthropic 于 2025 年推出的一种面向 AI Agent 提供�
 当用户的任务与某项技能相关时，Agent 可以读取相应说明和所需资源，并据此完成任务。
 这种组织方式使研究者能够将常用的操作步骤和领域知识保存下来，在后续任务中重复使用。
 
+\begin{center}
+\begin{minipage}{\linewidth}
+    \centering
+    \makeatletter
+    \def\@captype{figure}
+    \makeatother
+    \includegraphics[width=\linewidth]{figs/latex-plugin-openai.png}
+    \caption{OpenAI 发布的 \LaTeX{} 插件及其附带的三个 Skill}
+    \label{fig:latex-plugin-openai}
+\end{minipage}
+\end{center}
+
 
 在实际写作中，\LaTeX{} 的编译命令和环境配置并不容易记住，遇到又臭又长的报错日志时，找到问题所在也可能需要花费不少时间。
 有一天我发现，ChatGPT Desktop 中有一个 OpenAI 发布的 LaTeX 插件，可以协助处理这些工作（见图~\ref{fig:latex-plugin-openai}）。\footnote{如果你的 ChatGPT 里还没有这个插件，可以尝试发送这样的提示词：“请从 \url{https://chatgpt.com/plugins/share/latex@openai-bundled} 安装 LaTeX 插件，并帮我检查我的 LaTeX 环境是否准备就绪。”}
 这个插件包含三个 Skill：\texttt{latex-doctor} 用于检查编译环境和工具是否可用，\texttt{latex-compile} 用于编译稿件，\texttt{texlive-runtime-installer} 则在没有检测到可用的 TeX Live 或 MacTeX 时，帮助安装完整的 TeX Live 环境。
 借助这些技能，研究者可以用自然语言请 Agent 检查环境、编译文件并协助分析报错，把更多精力放在论文内容上。
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{figs/latex-plugin-openai.png}
-    \caption{OpenAI 发布的 \LaTeX{} 插件及其附带的三个 Skill}
-    \label{fig:latex-plugin-openai}
-\end{figure}
-
-
+\begingroup
+\interlinepenalty=10000
 同时，因为我并没有找到特别好用特别适合我的 Skill 来帮我处理具体的命令。
 因为我记不住 \LaTeX{} 的命令，所以我需要借助于 AI 帮我写很多的命令。但当我处于无网络的情况下我不得不依赖于我在本地部署的模型，可他们的能力却一言难尽。
 因此，在我开源的一套 Agent Skill 里有一个专门的 Skill 就是针对于如何编写 \LaTeX{} 代码。
 该 Skill 面向论文写作中常见的 \LaTeX{} 代码编写任务，整理了公式、图表和文献引用等场景的基本写法及注意事项。\footnote{项目地址为 \url{https://github.com/sepinetam/sepine-research-skill}。如需安装只需要将下面这段话发给你的 Agent：“帮我安装 Sepine 的 Research Skill，地址在 https://github.com/sepinetam/sepine-research-skill”}
 使用时，我们只需要用自然语言讲出我们需要什么样的效果，Agent 即可结合 Skill 中的说明生成或修改相应代码。
 对于本地部署的模型，这些说明也可以作为完成任务时的参考，帮助它按照项目约定处理常见的 \LaTeX{} 命令。
+\par
+\endgroup
+
+
 
 \subsection{Coding Agent}
 

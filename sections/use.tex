@@ -42,15 +42,12 @@ GitHub 是一个基于 Git 的在线托管与协作平台。
 研究者可以将论文的 \LaTeX 源文件、参考文献和分析代码放在同一个仓库中，与合作者共享。
 合作者可以在线查看每次提交改动了哪些文件，也可以提交拟议的修改，由其他成员审阅和讨论后再将其纳入共同维护的稿件。
 
-研究者可以使用 GitHub 上的模板仓库创建自己的论文项目。
-这里以图~\ref{fig:github-paper-template} 所示的 AIdea-Labs 内部模板为例，点击页面右上方的 \textbf{Use this template}，再选择 \textbf{Create a new repository}，即可在自己的账户下新建一个包含该模板项目文件的新仓库。
-新仓库从一条初始提交开始，与原模板仓库不共享提交历史，此后可以独立记录论文的修改过程。
-如果你希望向模板仓库贡献修改，可以通过 \textbf{Fork} 按钮创建一个与原仓库关联的副本，在自己的副本中修改后，向原项目提交 \textbf{Pull Request}（简称 PR），请求维护者检查并合并这些修改。
-由于基于模板创建的仓库与原仓库没有共同的提交历史，通常不能直接向原模板仓库提交 PR。
-因此，使用模板写自己的论文可以选择 \textbf{Use this template}，向模板项目贡献修改则可以选择 \textbf{Fork}。
-
-\begin{figure}[htbp]
+\begin{center}
+\begin{minipage}{\linewidth}
     \centering
+    \makeatletter
+    \def\@captype{figure}
+    \makeatother
     \setlength{\unitlength}{\linewidth}
     \begin{picture}(1,0.501)
         \put(0,0){\includegraphics[width=\linewidth]{figs/github-paper-template.png}}
@@ -65,7 +62,15 @@ GitHub 是一个基于 Git 的在线托管与协作平台。
     红色箭头和文字为作者所加，标出了创建模板副本、分叉、查看提交记录、反馈问题和提交修改请求等位置。
     图中展示的是 AIdea-Labs 的另一个模板项目；本文项目可以\href{https://github.com/aidea-labs/econ-sbm-template}{\underline{点击这里}}查看。
     \par}
-\end{figure}
+\end{minipage}
+\end{center}
+
+研究者可以使用 GitHub 上的模板仓库创建自己的论文项目。
+这里以图~\ref{fig:github-paper-template} 所示的 AIdea-Labs 内部模板为例，点击页面右上方的 \textbf{Use this template}，再选择 \textbf{Create a new repository}，即可在自己的账户下新建一个包含该模板项目文件的新仓库。
+新仓库从一条初始提交开始，与原模板仓库不共享提交历史，此后可以独立记录论文的修改过程。
+如果你希望向模板仓库贡献修改，可以通过 \textbf{Fork} 按钮创建一个与原仓库关联的副本，在自己的副本中修改后，向原项目提交 \textbf{Pull Request}（简称 PR），请求维护者检查并合并这些修改。
+由于基于模板创建的仓库与原仓库没有共同的提交历史，通常不能直接向原模板仓库提交 PR。
+因此，使用模板写自己的论文可以选择 \textbf{Use this template}，向模板项目贡献修改则可以选择 \textbf{Fork}。
 
 仓库首页的 \textbf{Code} 页面列出项目文件，并在文件列表上方显示最近一次提交及其时间。
 点击提交记录，可以查看该版本具体修改了哪些文件。
