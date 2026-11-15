@@ -83,6 +83,7 @@
   bibstyle=\econ@bibstyle,
   citestyle=\econ@citestyle
 ]{biblatex}
+\RequirePackage[hidelinks]{hyperref}
 
 % Shared manuscript fields. Each template controls how they are displayed.
 \newcommand{\econ@abstracten}{}
