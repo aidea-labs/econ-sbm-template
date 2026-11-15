@@ -1,0 +1,53 @@
+\documentclass{aidealabs-paper-zh}
+% !TeX program = xelatex
+
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{twemojis}
+
+\title{中文经济学类期刊 \LaTeX 模版}
+\author{
+    谭淞\thanks{
+        谭淞，上海比翼视界信息科技有限公司、上海大学法学院。
+        通讯地址：上海市宝山区南陈路333号，Email：sepine@aidea-labs.com。
+        该项目为独立的，以 AGPL 3.0 License 为协议的开源项目，旨在让更多人免受排版之苦，普惠研究者。
+        项目地址：https://github.com/aidea-labs/econ-sbm-template，
+        如模版存在问题或有新的需求，可在该项目中提交 Issue，如您希望贡献代码可根据项目指引提交 PR，
+        每一个人的贡献都会使科研更加普惠。}
+}
+\date{\today}
+\addbibresource{ref.bib}
+
+% 下面是特定期刊有要求，可以没有
+% \titleen{Templates for Chinese Economics Journals}
+% \abstracten{} % 在此填写英文摘要。
+% \keywordsen{} % 在此填写三个英文关键词。
+% \jel{} % 在此填写三个 JEL 分类号。
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    部分中文经济学期刊尚未提供 \LaTeX{} 模板，研究者在论文写作和投稿时需要自行查找期刊要求并调整稿件格式。
+    为减少重复排版工作，本项目整理了若干期刊公开的投稿体例，构建并开源了一系列 \LaTeX{} 模板，尽可能将论文内容与期刊样式分离，方便研究者在同一份稿件上切换模板。
+    本文介绍了模板的基本使用方法，以及借助 Git、GitHub 和 AI Agent 进行论文写作、版本管理与协作的方式。
+    本项目希望降低社会科学研究者使用 \LaTeX{} 撰写论文的技术门槛，并为不同阶段的写作和投稿提供支持。
+
+\end{abstract}
+
+\keywords{\LaTeX, 学术期刊, 论文排版}
+
+\input{sections/intro.tex}
+\input{sections/works.tex}
+\input{sections/use.tex}
+\input{sections/conclusion.tex}
+
+\newpage
+\printbibliography[title={参考文献}]
+
+\clearpage
+\appendix
+\input{sections/appendix.tex}
+
+\end{document}
