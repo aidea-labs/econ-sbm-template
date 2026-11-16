@@ -1,0 +1,84 @@
+\ProvidesFile{zh.bbx}[AIdeaLabs Chinese reference list]
+\RequireBibliographyStyle{authoryear}
+\ExecuteBibliographyOptions{labelnumber=true}
+
+\defbibenvironment{bibliography}
+  {\list{\mkbibbrackets{\printfield{labelnumber}}}
+    {\setlength{\labelwidth}{\labelnumberwidth}%
+     \setlength{\labelsep}{\biblabelsep}%
+     \setlength{\leftmargin}{\labelwidth}%
+     \addtolength{\leftmargin}{\labelsep}%
+     \setlength{\itemsep}{\bibitemsep}%
+     \setlength{\parsep}{\bibparsep}}%
+   \renewcommand*{\makelabel}[1]{\hss##1}}
+  {\endlist}
+  {\item}
+
+\DeclareNameFormat{aidea-chinese}{%
+  \ifnumgreater{\value{listcount}}{1}{、}{}%
+  \namepartfamily\namepartgiven}
+\newbibmacro*{aidea:names}[1]{%
+  \iffieldequalstr{langid}{chinese}
+    {\printnames[aidea-chinese]{#1}}
+    {\begingroup\toggletrue{abx@bool@giveninits}\printnames[family-given/given-family]{#1}\endgroup}}
+\DeclareFieldFormat{aidea-article-title}{%
+  \iffieldequalstr{langid}{chinese}{“#1”}{\mkbibquote{#1}}}
+\DeclareFieldFormat{aidea-container-title}{%
+  \iffieldequalstr{langid}{chinese}{《#1》}{\mkbibemph{#1}}}
+\DeclareFieldFormat{aidea-year}{%
+  \iffieldequalstr{langid}{chinese}{#1年}{#1}}
+\DeclareFieldFormat{aidea-volume}{%
+  \iffieldequalstr{langid}{chinese}{第#1卷}{#1}}
+\DeclareFieldFormat{aidea-number}{%
+  \iffieldequalstr{langid}{chinese}{第#1期}{\mkbibparens{#1}}}
+\DeclareFieldFormat{aidea-pages}{%
+  \iffieldequalstr{langid}{chinese}{第#1页}{#1}}
+\newcommand*{\aideacomma}{%
+  \iffieldequalstr{langid}{chinese}{，}{\addcomma\space}}
+\newcommand*{\aideaperiod}{%
+  \iffieldequalstr{langid}{chinese}{。}{\addperiod\space}}
+\newbibmacro*{aidea:publication}{%
+  \printlist{location}%
+  \setunit{\iffieldequalstr{langid}{chinese}{：}{\addcolon\space}}%
+  \printlist{publisher}%
+  \setunit{\aideacomma}%
+  \printfield[aidea-year]{year}}
+\newbibmacro*{aidea:finish}{%
+  \setunit{\aideaperiod}\newblock
+  \usebibmacro{doi+eprint+url}%
+  \iffieldequalstr{langid}{chinese}{\renewcommand*{\finentrypunct}{。}}{}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}\usebibmacro{begentry}%
+  \usebibmacro{aidea:names}{author}%
+  \setunit{\aideacomma}\printfield[aidea-article-title]{title}%
+  \setunit{\aideacomma}\printfield[aidea-container-title]{journaltitle}%
+  \setunit{\aideacomma}\printfield[aidea-year]{year}%
+  \setunit{\aideacomma}\printfield[aidea-volume]{volume}%
+  \setunit*{}\printfield[aidea-number]{number}%
+  \setunit{\aideacomma}\printfield[aidea-pages]{pages}%
+  \usebibmacro{aidea:finish}}
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}\usebibmacro{begentry}%
+  \ifnameundef{author}{\usebibmacro{aidea:names}{editor}}{\usebibmacro{aidea:names}{author}}%
+  \setunit{\aideacomma}\printfield[aidea-container-title]{title}%
+  \setunit{\aideaperiod}\usebibmacro{aidea:publication}%
+  \usebibmacro{aidea:finish}}
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}\usebibmacro{begentry}%
+  \usebibmacro{aidea:names}{author}%
+  \setunit{\aideacomma}\printfield[aidea-article-title]{title}%
+  \setunit{\aideacomma}%
+  \printtext{\iffieldequalstr{langid}{chinese}{载}{In\addspace}}%
+  \iffieldequalstr{langid}{chinese}
+    {\usebibmacro{aidea:names}{editor}%
+     \ifnameundef{editor}{}{\printtext{主编}}%
+     \printfield[aidea-container-title]{booktitle}}
+    {\printfield[aidea-container-title]{booktitle}%
+     \ifnameundef{editor}{}{\setunit{\addcomma\space}%
+       \printtext{edited by\addspace}\printnames[given-family]{editor}}}%
+  \setunit{\aideacomma}\printfield[aidea-pages]{pages}%
+  \setunit{\aideaperiod}\usebibmacro{aidea:publication}%
+  \usebibmacro{aidea:finish}}
+\DeclareBibliographyAlias{inproceedings}{incollection}
